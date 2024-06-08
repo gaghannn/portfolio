@@ -28,8 +28,7 @@ const HeroSection = () => {
           </span>
           </h1>
           <p className='text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Aperiam, temporibus
+            Coding serves as my craft, navigating through bugs challenges my mettle, and innovation fuels my essence.
           </p>
           <div>
             <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-green-800 via-green-600 to-green-400 hover:bg-slate-200 text-white'>

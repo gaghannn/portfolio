@@ -2,10 +2,9 @@ import Image from "next/image";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import AboutSection from "./components/AboutSection";
-import ProjectCard from "./components/ProjectCard";
 import ProjectSection from "./components/ProjectSection";
-import MenuOverlay from "./components/MenuOverlay";
-import NavLink from "./components/NavLink";
+import EmailSection from "./components/EmailSection";
+
 
 export default function Home() {
   return (
@@ -15,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ProjectSection />
+        <EmailSection />
       </div>
     </main>
   );

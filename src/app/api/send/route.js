@@ -1,5 +1,7 @@
-// import { EmailTemplate } from '../../../components/EmailTemplate';
 import { Resend } from 'resend';
+import { config } from 'dotenv';
+
+config(); // Load environment variables
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -11,7 +13,7 @@ export async function POST() {
       subject: 'Hello world',
       react: (
         <>
-            <p>Email Body</p>
+          <p>Email Body</p>
         </>
       ),
     });
@@ -22,6 +24,6 @@ export async function POST() {
 
     return Response.json(data);
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return Response.json({ error: error.message }, { status: 500 });
   }
 }

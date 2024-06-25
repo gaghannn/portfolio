@@ -1,20 +1,29 @@
-const Resend = require('path-to-resend-module');
+import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
-// Menggunakan environment variable untuk API key
 const resend = new Resend(process.env.RESEND_API_KEY);
+const fromEmail = process.env.FROM_EMAIL;
 
-async function sendEmail(req, res) {
+export async function POST(req, res) {
+    const { body } = req;
+    const { email, subject, message } = body;
     try {
-        await resend.send({
-            to: 'recipient@example.com',
-            subject: 'Hello World',
-            text: 'Hello from Resend!',
+        const data = await resend.emails.send({
+            from: fromEmail,
+            to: ['alghanimuhammadf@gmail.com', email],
+            subject: subject,
+            react: (
+                <>
+                 <h1>{subject}</h1>
+                 <p>Thank you for contacting me!</p>
+                 <p>New message submitted:</p>
+                 <p>{message}</p>
+                </>
+            ),
         });
-        res.status(200).send('Email sent successfully');
+
+        return NextResponse.json(data);
     } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).send('Failed to send email');
+        return NextResponse.json({ error });
     }
 }
-
-module.exports = sendEmail;

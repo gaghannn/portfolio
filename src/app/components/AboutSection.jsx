@@ -15,6 +15,7 @@ const TAB_DATA = [
         <li>PHP</li>
         <li>SQL</li>
         <li>Vue.js</li>
+        <li>Figma</li>
       </ul>
     )
   },
